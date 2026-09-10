@@ -1,4 +1,5 @@
 # NOVA Keys
+<img width="805" height="255" alt="NOVA Keys showing its dark and light themes" src="https://github.com/user-attachments/assets/dc8180c4-656c-41e4-8ae2-70518710da3f" />
 
 NOVA Keys is a GTK4 on-screen keyboard for compatible Wayland desktops. It offers
 21 language layouts, long-press alternatives, custom layouts, and local Chinese,
