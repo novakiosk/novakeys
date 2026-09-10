@@ -32,6 +32,7 @@ window > box.novakeys-backdrop > box.novakeys-keyboard {
     padding: 4px;
     border-radius: 8px;
     background: #d1d5db;
+    color: black;
 }
 
 /* Direct keyboard children; nested rows handle spacing */
@@ -241,6 +242,7 @@ popover.alternative-chars button:active {
 /* Dark mode overrides */
 window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard {
     background: #111827;
+    color: #e5e7eb;
 }
 
 /* Dark mode keys */

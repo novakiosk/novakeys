@@ -21,13 +21,6 @@ X11 sessions are not supported. Applications must also provide Wayland
 text-input integration for the keyboard to appear when a field is focused.
 Another input method already owning the seat can prevent NOVA Keys from starting.
 
-## Release downloads
-
-[Release archives](https://github.com/novakiosk/novakeys/releases) are labelled with their Fedora version and x86_64 architecture.
-They include the executable, configuration example and license notices; install
-the matching shared libraries and dictionaries listed below. These archives are
-not self-contained binaries for other Linux distributions.
-
 ## Build and install
 
 You need the Rust toolchain selected by `rust-toolchain.toml`, a C compiler,

@@ -52,11 +52,9 @@ def main():
         with open(os.environ["GITHUB_OUTPUT"], "a") as output:
             output.write(f"build=true\nversion={value}\n")
         return
-    archives = list(Path("dist").glob(f"novakeys-{value}-fedora*-x86_64.tar.gz"))
-    if len(archives) != 1 or not re.fullmatch(
-            rf"novakeys-{re.escape(value)}-fedora[0-9]+-x86_64.tar.gz", archives[0].name):
-        raise RuntimeError("Expected exactly one versioned Fedora x86_64 archive")
-    archive = archives[0]
+    archive = Path(f"dist/novakeys-{value}-x86_64.tar.gz")
+    if not archive.is_file():
+        raise RuntimeError(f"Expected release archive: {archive}")
     checksum = Path("dist/SHA256SUMS")
     if checksum.read_text() != f"{hashlib.sha256(archive.read_bytes()).hexdigest()}  {archive.name}\n":
         raise RuntimeError("Release archive checksum mismatch")

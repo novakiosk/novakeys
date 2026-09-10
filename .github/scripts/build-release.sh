@@ -21,10 +21,8 @@ xvfb-run -a -s "-screen 0 1600x1200x24" \
   -- --exact --ignored --test-threads=1
 cargo build --release --locked
 
-fedora=$(rpm -E '%fedora')
-[[ "$fedora" =~ ^[0-9]+$ ]]
 [[ $(uname -m) == x86_64 ]]
-package="novakeys-${VERSION}-fedora${fedora}-x86_64"
+package="novakeys-${VERSION}-x86_64"
 staging=$(mktemp -d)
 mkdir -p "$staging/$package" dist
 install -m755 "${CARGO_TARGET_DIR:-target}/release/novakeys" "$staging/$package/novakeys"
