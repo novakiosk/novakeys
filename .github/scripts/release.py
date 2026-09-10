@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+"""Check the checkout's version, then let GitHub CLI create and upload its release."""
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import subprocess
+import sys
+import tomllib
+from urllib.parse import quote
+
+
+def api(endpoint, *options):
+    return json.loads(subprocess.check_output(["gh", "api", endpoint, *options], text=True))
+
+
+def version():
+    package = tomllib.loads(Path("Cargo.toml").read_text())["package"]
+    value = package["version"]
+    if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?", value):
+        raise RuntimeError("Cargo.toml must contain a literal release version")
+    locked = tomllib.loads(Path("Cargo.lock").read_text())["package"]
+    roots = [p for p in locked if p["name"] == package["name"] and "source" not in p]
+    if len(roots) != 1 or roots[0]["version"] != value:
+        raise RuntimeError("Update and commit Cargo.lock together with the Cargo.toml version bump")
+    return value
+
+
+def main():
+    mode = sys.argv[1]
+    if mode not in ("check", "publish"):
+        raise RuntimeError("Expected check or publish")
+    value = version()
+    tag = "v" + value
+    repo = "repos/" + os.environ["GITHUB_REPOSITORY"]
+    sha = os.environ["GITHUB_SHA"]
+    pages = api(f"{repo}/releases?per_page=100", "--paginate", "--slurp")
+    matches = [release for page in pages for release in page if release["tag_name"] == tag]
+    if any(release["draft"] for release in matches):
+        raise RuntimeError(f"{tag} has an unfinished draft; review/remove it manually, then retry")
+    if matches:
+        print(f"{tag} is already published; nothing to change")
+        if mode == "check":
+            with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+                output.write("build=false\n")
+        return
+    refs = api(f"{repo}/git/matching-refs/tags/{quote(tag, safe='')}")
+    if any(ref["ref"] == "refs/tags/" + tag for ref in refs):
+        raise RuntimeError(f"{tag} already exists without a published release; review/remove it manually, then retry")
+    if mode == "check":
+        with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+            output.write(f"build=true\nversion={value}\n")
+        return
+    archives = list(Path("dist").glob(f"novakeys-{value}-fedora*-x86_64.tar.gz"))
+    if len(archives) != 1 or not re.fullmatch(
+            rf"novakeys-{re.escape(value)}-fedora[0-9]+-x86_64.tar.gz", archives[0].name):
+        raise RuntimeError("Expected exactly one versioned Fedora x86_64 archive")
+    archive = archives[0]
+    checksum = Path("dist/SHA256SUMS")
+    if checksum.read_text() != f"{hashlib.sha256(archive.read_bytes()).hexdigest()}  {archive.name}\n":
+        raise RuntimeError("Release archive checksum mismatch")
+    command = ["gh", "release", "create", tag, str(archive), str(checksum),
+               "--repo", os.environ["GITHUB_REPOSITORY"], "--target", sha,
+               "--title", "NOVA Keys " + value,
+               "--notes", f"Fedora x86_64; install matching shared libraries and dictionaries from README.md.\nSource: {sha}"]
+    if "-" in value.split("+", 1)[0]:
+        command += ["--prerelease", "--latest=false"]
+    # gh creates a draft, uploads the supplied assets, then publishes it.
+    subprocess.run(command, check=True)
+
+
+if __name__ == "__main__":
+    main()

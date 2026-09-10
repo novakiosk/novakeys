@@ -1,0 +1,62 @@
+# Chinese layout with Pinyin support
+
+language_code = "zh"
+language_name = "中文"
+language_flag = "🇨🇳"
+layout = [
+    [
+        { text = "1" },
+        { text = "2" },
+        { text = "3" },
+        { text = "4" },
+        { text = "5" },
+        { text = "6" },
+        { text = "7" },
+        { text = "8" },
+        { text = "9" },
+        { text = "0" },
+        { action = "backspace", display_text = "Backspace", width = 2 },
+    ],
+    [
+        { text = "q" },
+        { text = "w" },
+        { text = "e" },
+        { text = "r" },
+        { text = "t" },
+        { text = "y" },
+        { text = "u" },
+        { text = "i" },
+        { text = "o" },
+        { text = "p" },
+        { action = "enter", display_text = "Enter", width = 2 },
+    ],
+    [
+        { text = "a" },
+        { text = "s" },
+        { text = "d" },
+        { text = "f" },
+        { text = "g" },
+        { text = "h" },
+        { text = "j" },
+        { text = "k" },
+        { text = "l" },
+        { text = "'", alternatives = ["、", "「", "」", "（", "）"] },
+    ],
+    [
+        { action = "shift", display_text = "Shift", width = 2 },
+        { text = "@" },
+        { text = "z" },
+        { text = "x" },
+        { text = "c" },
+        { text = "v" },
+        { text = "b" },
+        { text = "n" },
+        { text = "m" },
+        { text = ".", alternatives = ["。", "，", "？", "！", ",", "?", "!"] },
+        { text = "-", alternatives = ["_", "+", "=", "/", ":", ";", "：", "；"] },
+    ],
+    [
+        { text = " ", display_text = "Space", width = 9 },
+        { action = "language_selector", display_text = "Lang", width = 2 },
+    ],
+]

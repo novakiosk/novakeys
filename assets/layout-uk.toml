@@ -1,0 +1,67 @@
+# Ukrainian layout
+
+language_code = "uk"
+language_name = "Українська"
+language_flag = "🇺🇦"
+
+layout = [
+    [
+        { text = "1" },
+        { text = "2" },
+        { text = "3" },
+        { text = "4" },
+        { text = "5" },
+        { text = "6" },
+        { text = "7" },
+        { text = "8" },
+        { text = "9" },
+        { text = "0" },
+        { action = "backspace", display_text = "Backspace", width = 2 },
+    ],
+    [
+        { text = "й" },
+        { text = "ц" },
+        { text = "у" },
+        { text = "к" },
+        { text = "е" },
+        { text = "н" },
+        { text = "г", alternatives = ["ґ"] },
+        { text = "ш" },
+        { text = "щ" },
+        { text = "з" },
+        { text = "х" },
+        { text = "ї" },
+        { action = "enter", display_text = "Enter", width = 2 },
+    ],
+    [
+        { text = "ф" },
+        { text = "і" },
+        { text = "в" },
+        { text = "а" },
+        { text = "п" },
+        { text = "р" },
+        { text = "о" },
+        { text = "л" },
+        { text = "д" },
+        { text = "ж" },
+        { text = "є" },
+    ],
+    [
+        { action = "shift", display_text = "Shift", width = 2 },
+        { text = "я" },
+        { text = "ч" },
+        { text = "с" },
+        { text = "м" },
+        { text = "и" },
+        { text = "т" },
+        { text = "ь" },
+        { text = "б" },
+        { text = "ю" },
+        { text = "'", alternatives = ["ʼ", "’", "-"] },
+        { text = ".", alternatives = [",", "?", "!", ":", ";", "/"] },
+    ],
+    [
+        { text = " ", display_text = "Space", width = 9 },
+        { action = "language_selector", display_text = "Lang", width = 2 },
+    ],
+]

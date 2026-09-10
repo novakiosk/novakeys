@@ -1,0 +1,64 @@
+# Hebrew layout
+
+language_code = "he"
+language_name = "עברית"
+language_flag = "🇮🇱"
+
+layout = [
+    [
+        { text = "1" },
+        { text = "2" },
+        { text = "3" },
+        { text = "4" },
+        { text = "5" },
+        { text = "6" },
+        { text = "7" },
+        { text = "8" },
+        { text = "9" },
+        { text = "0" },
+        { action = "backspace", display_text = "Backspace", width = 2 },
+    ],
+    [
+        { text = "/" },
+        { text = "'", alternatives = ["׳", "״"] },
+        { text = "ק" },
+        { text = "ר" },
+        { text = "א" },
+        { text = "ט" },
+        { text = "ו" },
+        { text = "ן" },
+        { text = "ם" },
+        { text = "פ" },
+        { action = "enter", display_text = "Enter", width = 2 },
+    ],
+    [
+        { text = "ש" },
+        { text = "ד" },
+        { text = "ג" },
+        { text = "כ" },
+        { text = "ע" },
+        { text = "י" },
+        { text = "ח" },
+        { text = "ל" },
+        { text = "ך" },
+        { text = "ף" },
+    ],
+    [
+        { text = "ז" },
+        { text = "ס" },
+        { text = "ב" },
+        { text = "ה" },
+        { text = "נ" },
+        { text = "מ" },
+        { text = "צ" },
+        { text = "ת" },
+        { text = "ץ" },
+        { text = ".", alternatives = [",", "?", "!", ":", ";", "/"] },
+        { text = "," },
+        { text = "-", alternatives = ["_", "+", "=", "־"] },
+    ],
+    [
+        { text = " ", display_text = "Space", width = 9 },
+        { action = "language_selector", display_text = "Lang", width = 2 },
+    ],
+]

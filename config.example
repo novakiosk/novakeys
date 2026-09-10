@@ -1,0 +1,13 @@
+# Copy to ~/.config/novakeys/config. All fields are optional.
+default_language = "en"
+supported_languages = ["en", "no", "de", "fr"]
+show_language_switcher = true
+include_builtins_with_custom = false
+dark_mode = false
+
+# Geometry is application configuration; style.css controls appearance.
+keyboard_width = 800 # 240–7680 pixels
+backdrop_width = "content" # "content" or "stretch"
+
+# With backdrop_width = "stretch", style.css can override the dimming:
+# window > box.novakeys-backdrop.stretch { background: rgba(0, 0, 0, 0.4); }

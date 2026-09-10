@@ -1,0 +1,63 @@
+# English (US) layout
+
+language_code = "en"
+language_name = "English"
+language_flag = "🇬🇧"
+
+layout = [
+    [
+        { text = "1" },
+        { text = "2" },
+        { text = "3" },
+        { text = "4" },
+        { text = "5" },
+        { text = "6" },
+        { text = "7" },
+        { text = "8" },
+        { text = "9" },
+        { text = "0" },
+        { action = "backspace", display_text = "Backspace", width = 2 },
+    ],
+    [
+        { text = "q" },
+        { text = "w" },
+        { text = "e", alternatives = ["é", "è", "ê", "ë"] },
+        { text = "r" },
+        { text = "t" },
+        { text = "y" },
+        { text = "u", alternatives = ["ú", "ù", "û", "ü"] },
+        { text = "i", alternatives = ["í", "ì", "î", "ï"] },
+        { text = "o", alternatives = ["ó", "ò", "ô", "ö", "õ"] },
+        { text = "p" },
+        { action = "enter", display_text = "Enter", width = 2 },
+    ],
+    [
+        { text = "a", alternatives = ["á", "à", "â", "ä", "ã", "å"] },
+        { text = "s", alternatives = ["ß"] },
+        { text = "d" },
+        { text = "f" },
+        { text = "g" },
+        { text = "h" },
+        { text = "j" },
+        { text = "k" },
+        { text = "l" },
+        { text = "'" },
+    ],
+    [
+        { action = "shift", display_text = "Shift", width = 2 },
+        { text = "@" },
+        { text = "z" },
+        { text = "x" },
+        { text = "c", alternatives = ["ç"] },
+        { text = "v" },
+        { text = "b" },
+        { text = "n", alternatives = ["ñ"] },
+        { text = "m" },
+        { text = ".", alternatives = [",", "?", "!", ":", ";", "/"] },
+        { text = "-", alternatives = ["_", "+", "="] },
+    ],
+    [
+        { text = " ", display_text = "Space", width = 9 },
+        { action = "language_selector", display_text = "Lang", width = 2 },
+    ],
+]

@@ -1,0 +1,38 @@
+[package]
+name = "novakeys"
+version = "1.0.0"
+edition = "2024"
+rust-version = "1.98.1"
+license = "MIT"
+readme = "README.md"
+keywords = ["wayland", "keyboard", "input"]
+homepage = "https://novaspektrum.no"
+repository = "https://github.com/novakiosk/novakeys"
+description = "An on-screen kiosk keyboard for wayland desktop written by rust using GTK-rs."
+
+
+[dependencies]
+rustix = { version = "1.1.4", features = ["net", "event", "fs", "process"] }
+tempfile = "3.27.0"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+gtk4-layer-shell = "0.8.1"
+relm4 = { version = "0.11.0", default-features = false }
+gtk4 = { version = "0.11.4", features = ["v4_10"] }
+toml = { version = "1.1.5", default-features = false, features = ["std", "serde", "parse"] }
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", default-features = false, features = ["std", "fmt", "tracing-log"] }
+wayland-client = "0.31.15"
+wayland-protocols-misc = { version = "0.3.12", features = ["client", "wayland-client"] }
+clap = { version = "4.6.6", default-features = false, features = ["std", "derive", "help", "usage", "error-context"] }
+xdg = "3.0.0"
+anyhow = "1.0.104"
+glib-unix = "0.22.8"
+
+
+[build-dependencies]
+cc = "1.4.5"
+pkg-config = "0.3.34"
+
+[dev-dependencies]
+xkbcommon = "0.9.0"

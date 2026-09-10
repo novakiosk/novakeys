@@ -1,0 +1,66 @@
+# Georgian layout
+
+language_code = "ka"
+language_name = "ქართული"
+language_flag = "🇬🇪"
+
+layout = [
+    [
+        { text = "1" },
+        { text = "2" },
+        { text = "3" },
+        { text = "4" },
+        { text = "5" },
+        { text = "6" },
+        { text = "7" },
+        { text = "8" },
+        { text = "9" },
+        { text = "0" },
+        { action = "backspace", display_text = "Backspace", width = 2 },
+    ],
+    [
+        { text = "ქ" },
+        { text = "წ" },
+        { text = "ე" },
+        { text = "რ", alternatives = ["ღ"] },
+        { text = "ტ", alternatives = ["თ"] },
+        { text = "ყ" },
+        { text = "უ" },
+        { text = "ი" },
+        { text = "ო" },
+        { text = "პ" },
+        { text = "შ" },
+        { action = "enter", display_text = "Enter", width = 2 },
+    ],
+    [
+        { text = "ა" },
+        { text = "ს" },
+        { text = "დ" },
+        { text = "ფ" },
+        { text = "გ" },
+        { text = "ჰ" },
+        { text = "ჯ" },
+        { text = "კ" },
+        { text = "ლ" },
+        { text = "ჟ" },
+        { text = "ჭ" },
+        { text = "'" },
+    ],
+    [
+        { action = "shift", display_text = "Shift", width = 2 },
+        { text = "@" },
+        { text = "ზ", alternatives = ["ძ"] },
+        { text = "ხ" },
+        { text = "ც", alternatives = ["ჩ"] },
+        { text = "ვ" },
+        { text = "ბ" },
+        { text = "ნ" },
+        { text = "მ" },
+        { text = ".", alternatives = [",", "?", "!", ":", ";", "/"] },
+        { text = "-", alternatives = ["_", "+", "="] },
+    ],
+    [
+        { text = " ", display_text = "Space", width = 9 },
+        { action = "language_selector", display_text = "Lang", width = 2 },
+    ],
+]

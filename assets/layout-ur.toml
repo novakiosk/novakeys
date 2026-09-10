@@ -1,0 +1,63 @@
+# Urdu layout
+
+language_code = "ur"
+language_name = "اردو"
+language_flag = "🇵🇰"
+
+layout = [
+    [
+        { text = "1" },
+        { text = "2" },
+        { text = "3" },
+        { text = "4" },
+        { text = "5" },
+        { text = "6" },
+        { text = "7" },
+        { text = "8" },
+        { text = "9" },
+        { text = "0" },
+        { action = "backspace", display_text = "Backspace", width = 2 },
+    ],
+    [
+        { text = "ق" },
+        { text = "و", alternatives = ["ؤ"] },
+        { text = "ع" },
+        { text = "ر", alternatives = ["ڑ"] },
+        { text = "ت", alternatives = ["ٹ", "ة"] },
+        { text = "ی", alternatives = ["ے", "ئ"] },
+        { text = "ہ" },
+        { text = "پ" },
+        { text = "د" },
+        { text = "ج" },
+        { text = "چ" },
+        { action = "enter", display_text = "Enter", width = 2 },
+    ],
+    [
+        { text = "ا", alternatives = ["آ"] },
+        { text = "س", alternatives = ["ص"] },
+        { text = "ڈ" },
+        { text = "ف" },
+        { text = "گ" },
+        { text = "ح", alternatives = ["ض"] },
+        { text = "ء" },
+        { text = "ک" },
+        { text = "ل" },
+        { text = "ط" },
+        { text = "ظ" },
+        { text = "'" },
+    ],
+    [
+        { text = "ز", alternatives = ["ذ", "ژ"] },
+        { text = "ش", alternatives = ["ث"] },
+        { text = "غ", alternatives = ["خ"] },
+        { text = "م" },
+        { text = "ن", alternatives = ["ں"] },
+        { text = "ب", alternatives = ["ھ"] },
+        { text = "۔", alternatives = [".", "،", "؟", "!", ":", "؛", "/"] },
+        { text = "-", alternatives = ["_", "+", "="] },
+    ],
+    [
+        { text = " ", display_text = "Space", width = 9 },
+        { action = "language_selector", display_text = "Lang", width = 2 },
+    ],
+]

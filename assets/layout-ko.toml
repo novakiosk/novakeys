@@ -1,0 +1,63 @@
+# Korean layout (Hangul)
+
+language_code = "ko"
+language_name = "한국어"
+language_flag = "🇰🇷"
+
+layout = [
+    [
+        { text = "1" },
+        { text = "2" },
+        { text = "3" },
+        { text = "4" },
+        { text = "5" },
+        { text = "6" },
+        { text = "7" },
+        { text = "8" },
+        { text = "9" },
+        { text = "0" },
+        { action = "backspace", display_text = "Backspace", width = 2 },
+    ],
+    [
+        { text = "ㅂ", alternatives = ["ㅃ"] },
+        { text = "ㅈ", alternatives = ["ㅉ"] },
+        { text = "ㄷ", alternatives = ["ㄸ"] },
+        { text = "ㄱ", alternatives = ["ㄲ"] },
+        { text = "ㅅ", alternatives = ["ㅆ"] },
+        { text = "ㅛ" },
+        { text = "ㅕ" },
+        { text = "ㅑ" },
+        { text = "ㅐ", alternatives = ["ㅒ"] },
+        { text = "ㅔ", alternatives = ["ㅖ"] },
+        { action = "enter", display_text = "Enter", width = 2 },
+    ],
+    [
+        { text = "ㅁ" },
+        { text = "ㄴ" },
+        { text = "ㅇ" },
+        { text = "ㄹ" },
+        { text = "ㅎ" },
+        { text = "ㅗ", alternatives = ["ㅘ", "ㅙ", "ㅚ"] },
+        { text = "ㅓ" },
+        { text = "ㅏ" },
+        { text = "ㅣ" },
+        { text = "'" },
+    ],
+    [
+        { text = "ㅋ" },
+        { text = "ㅌ" },
+        { text = "ㅊ" },
+        { text = "ㅍ" },
+        { text = "ㅠ" },
+        { text = "ㅜ", alternatives = ["ㅝ", "ㅞ", "ㅟ"] },
+        { text = "ㅡ", alternatives = ["ㅢ"] },
+        { text = ".", alternatives = [",", "?", "!", ":", ";", "/"] },
+        { text = "-", alternatives = ["_", "+", "="] },
+    ],
+    [
+        { action = "shift", display_text = "Shift", width = 2 },
+        { text = "@" },
+        { text = " ", display_text = "Space", width = 9 },
+        { action = "language_selector", display_text = "Lang", width = 2 },
+    ],
+]

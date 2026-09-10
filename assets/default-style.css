@@ -1,0 +1,505 @@
+/*
+NOVA Keys default theme
+
+Structure:
+- window: top-level layer-shell window
+- backdrop: container that can stretch full-width for dimming
+- keyboard: centered content box that holds all keys
+
+Customization:
+To enable full-width backdrop with desktop dimming:
+    Set backdrop_width = "stretch" in the config TOML.
+*/
+
+/* Backdrop styling */
+window {
+    background: transparent;
+}
+
+/* Stretch mode backdrop with dimming */
+window > box.novakeys-backdrop.stretch {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Window styling */
+window.novakeys-dark,
+window {
+    border-radius: 0px;
+}
+
+/* Keyboard container */
+window > box.novakeys-backdrop > box.novakeys-keyboard {
+    padding: 4px;
+    border-radius: 8px;
+    background: #d1d5db;
+}
+
+/* Direct keyboard children; nested rows handle spacing */
+window > box.novakeys-backdrop > box.novakeys-keyboard > box {
+    margin-bottom: 0;
+}
+
+/* Nested row containers */
+window > box.novakeys-backdrop > box.novakeys-keyboard > box > box {
+    margin-bottom: 1px;
+}
+
+window > box.novakeys-backdrop > box.novakeys-keyboard > box > box:last-child {
+    margin-bottom: 0;
+}
+
+/* Key buttons */
+window > box.novakeys-backdrop > box.novakeys-keyboard button,
+window > box.novakeys-backdrop > box.novakeys-keyboard custom-button {
+    background-color: white;
+    background-image: none;
+    border: 1px solid #cfd8e3;
+    border-radius: 4px;
+    margin: 0.25px;
+    padding: 2px;
+    min-height: 36px;
+    box-shadow: none;
+}
+
+window > box.novakeys-backdrop > box.novakeys-keyboard button > label,
+window > box.novakeys-backdrop > box.novakeys-keyboard custom-button > label {
+    color: black;
+}
+
+window > box.novakeys-backdrop > box.novakeys-keyboard button:hover,
+window > box.novakeys-backdrop > box.novakeys-keyboard custom-button:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+window > box.novakeys-backdrop > box.novakeys-keyboard button:active,
+window > box.novakeys-backdrop > box.novakeys-keyboard custom-button:active {
+    background-color: rgb(230, 230, 230);
+}
+
+window > box.novakeys-backdrop > box.novakeys-keyboard button:checked {
+    background-color: rgb(59, 130, 246);
+    color: white;
+}
+
+window > box.novakeys-backdrop > box.novakeys-keyboard button:checked > label {
+    color: white;
+}
+
+/* Language selector active state */
+.current-language {
+    background-color: rgba(0, 120, 212, 0.1);
+    border: 1px solid rgba(0, 120, 212, 0.3);
+}
+
+.current-indicator {
+    color: #0078d4;
+    font-weight: bold;
+}
+
+/* Local composition and candidate controls */
+.composition { padding: 4px; }
+.composition button { padding: 3px 6px; min-width: 24px; }
+.composition label { font-size: 16px; }
+
+/* Language flag button */
+window > box.novakeys-backdrop > box.novakeys-keyboard .language-flag-button > label {
+    font-size: 24px;
+}
+
+/* ActionButton child styling; keyboard theme rules take precedence. */
+action-button > button {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* General popover styling */
+popover:not(.novakeys-dark) {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    color: #000000;
+}
+popover:not(.novakeys-dark):not(.language-selector):not(.alternative-chars) button {
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 10px;
+    color: #000000;
+}
+popover:not(.novakeys-dark):not(.language-selector):not(.alternative-chars) button:hover {
+    background-color: #f3f4f6;
+}
+popover:not(.novakeys-dark) * {
+    color: #000000;
+}
+
+/* Language selector popover */
+popover.language-selector {
+    background-color: transparent;
+    border: none;
+}
+
+/* Language selector contents */
+popover.language-selector contents {
+    background-color: #d1d5db;
+    border: 1px solid #cfd8e3;
+    border-radius: 10px;
+    padding: 6px;
+}
+
+popover.language-selector arrow {
+    background-color: #d1d5db;
+    border: 1px solid #cfd8e3;
+}
+
+popover.language-selector grid {
+    margin: 2px;
+}
+
+popover.language-selector button {
+    background-color: white;
+    background-image: none;
+    color: black;
+    border: 1px solid #cfd8e3;
+    border-radius: 6px;
+    padding: 8px 12px;
+    min-width: 100px;
+    min-height: 42px;
+    font-size: 14px;
+}
+
+popover.language-selector button:hover {
+    background-color: rgb(240, 240, 240);
+    background-image: none;
+}
+
+popover.language-selector button:active {
+    background-color: rgb(220, 220, 220);
+    background-image: none;
+}
+
+/* Language selector button labels */
+popover.language-selector button label,
+popover.language-selector button box label {
+    color: black;
+}
+
+/* Current language button */
+popover.language-selector button.current-language {
+    background-color: #e0e7ff;
+    color: #1e40af;
+    border: 2px solid #3b82f6;
+}
+
+popover.language-selector button.current-language:hover {
+    background-color: #e0e7ff;
+    color: #1e40af;
+}
+
+popover.language-selector button.current-language box,
+popover.language-selector button.current-language label {
+    color: #1e40af;
+}
+
+/* Alternative characters popover */
+popover.alternative-chars {
+    background-color: transparent;
+    border: none;
+}
+
+popover.alternative-chars contents {
+    background-color: #d1d5db;
+    border: 1px solid #cfd8e3;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+popover.alternative-chars arrow {
+    background-color: #d1d5db;
+    border: 1px solid #cfd8e3;
+}
+
+popover.alternative-chars button {
+    background-color: white;
+    color: black;
+    border: 1px solid #cfd8e3;
+    border-radius: 4px;
+    padding: 2px;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+popover.alternative-chars button:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+popover.alternative-chars button:active {
+    background-color: rgb(230, 230, 230);
+}
+
+/* Dark mode overrides */
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard {
+    background: #111827;
+}
+
+/* Dark mode keys */
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard button,
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard custom-button {
+    background-color: #1f2937;
+    border: 1px solid #374151;
+}
+
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard button > label,
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard custom-button > label {
+    color: #e5e7eb;
+}
+
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard button:hover,
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard custom-button:hover {
+    background-color: #374151;
+}
+
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard button:active,
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard custom-button:active {
+    background-color: #4b5563;
+}
+
+/* Dark mode checked keys */
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard button:checked {
+    background-color: rgb(59, 130, 246);
+    color: white;
+}
+
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard button:checked > label {
+    color: white;
+}
+
+/* Dark mode popovers */
+window.novakeys-dark popover:not(.alternative-chars):not(.language-selector),
+popover.novakeys-dark:not(.alternative-chars):not(.language-selector) {
+    background-color: #111827;
+    border: 1px solid #374151;
+    color: #e5e7eb;
+}
+
+/* Dark mode popover - general styling (exclude alternative-chars and language-selector) */
+window.novakeys-dark popover:not(.alternative-chars):not(.language-selector) *,
+popover.novakeys-dark:not(.alternative-chars):not(.language-selector) * {
+    background: transparent;
+    color: #e5e7eb;
+}
+
+window.novakeys-dark popover:not(.alternative-chars):not(.language-selector) grid,
+popover.novakeys-dark:not(.alternative-chars):not(.language-selector) grid,
+window.novakeys-dark popover:not(.alternative-chars):not(.language-selector) box,
+popover.novakeys-dark:not(.alternative-chars):not(.language-selector) box {
+    background: transparent;
+}
+
+/* Dark mode alternative chars popover */
+window.novakeys-dark popover.alternative-chars,
+popover.novakeys-dark.alternative-chars {
+    background-color: transparent;
+    border: none;
+}
+
+window.novakeys-dark popover.alternative-chars contents,
+popover.novakeys-dark.alternative-chars contents {
+    background-color: #111827;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+window.novakeys-dark popover.alternative-chars arrow,
+popover.novakeys-dark.alternative-chars arrow {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+/* Dark mode alternative chars buttons */
+popover.alternative-chars.novakeys-dark button,
+window.novakeys-dark popover.alternative-chars button,
+popover.novakeys-dark.alternative-chars button {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    border: 1px solid #374151;
+    border-radius: 4px;
+    padding: 6px 10px;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+popover.alternative-chars.novakeys-dark button:hover,
+window.novakeys-dark popover.alternative-chars button:hover,
+popover.novakeys-dark.alternative-chars button:hover {
+    background-color: #374151;
+    color: #ffffff;
+}
+
+popover.alternative-chars.novakeys-dark button:active,
+window.novakeys-dark popover.alternative-chars button:active,
+popover.novakeys-dark.alternative-chars button:active {
+    background-color: #1f2937;
+    color: #ffffff;
+}
+
+/* Dark mode language selector popover */
+window.novakeys-dark popover.language-selector,
+popover.novakeys-dark.language-selector {
+    background-color: transparent;
+    border: none;
+}
+
+window.novakeys-dark popover.language-selector contents,
+popover.novakeys-dark.language-selector contents {
+    background-color: #111827;
+    border: 1px solid #374151;
+    border-radius: 10px;
+    padding: 6px;
+}
+
+window.novakeys-dark popover.language-selector arrow,
+popover.novakeys-dark.language-selector arrow {
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+/* Dark mode language selector buttons */
+button.novakeys-language-button.novakeys-dark,
+button.novakeys-language-button.novakeys-dark.text-button,
+popover.language-selector.novakeys-dark button.novakeys-language-button,
+popover.language-selector.novakeys-dark button.novakeys-language-button.text-button,
+popover.language-selector button.novakeys-language-button.novakeys-dark,
+popover.language-selector button.novakeys-language-button.novakeys-dark.text-button,
+window.novakeys-dark popover.language-selector button.novakeys-language-button,
+window.novakeys-dark popover.language-selector button.novakeys-language-button.text-button,
+popover.novakeys-dark.language-selector button.novakeys-language-button,
+popover.novakeys-dark.language-selector button.novakeys-language-button.text-button {
+    background-color: #1f2937;
+    background-image: none;
+    color: #e5e7eb;
+    border: 1px solid #374151;
+    border-radius: 6px;
+    padding: 8px 12px;
+    min-width: 100px;
+    min-height: 42px;
+    font-size: 14px;
+    box-shadow: none;
+}
+
+button.novakeys-language-button.novakeys-dark box,
+button.novakeys-language-button.novakeys-dark label,
+popover.language-selector.novakeys-dark button.novakeys-language-button box,
+popover.language-selector.novakeys-dark button.novakeys-language-button label,
+window.novakeys-dark popover.language-selector button.novakeys-language-button box,
+window.novakeys-dark popover.language-selector button.novakeys-language-button label {
+    color: #e5e7eb;
+    background: transparent;
+}
+
+button.novakeys-language-button.novakeys-dark:hover,
+button.novakeys-language-button.novakeys-dark.text-button:hover,
+popover.language-selector.novakeys-dark button.novakeys-language-button:hover,
+popover.language-selector.novakeys-dark button.novakeys-language-button.text-button:hover,
+popover.language-selector button.novakeys-language-button.novakeys-dark:hover,
+popover.language-selector button.novakeys-language-button.novakeys-dark.text-button:hover,
+window.novakeys-dark popover.language-selector button.novakeys-language-button:hover,
+window.novakeys-dark popover.language-selector button.novakeys-language-button.text-button:hover,
+popover.novakeys-dark.language-selector button.novakeys-language-button:hover,
+popover.novakeys-dark.language-selector button.novakeys-language-button.text-button:hover {
+    background-color: #374151;
+    background-image: none;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+button.novakeys-language-button.novakeys-dark:hover box,
+button.novakeys-language-button.novakeys-dark:hover label,
+popover.language-selector.novakeys-dark button.novakeys-language-button:hover box,
+popover.language-selector.novakeys-dark button.novakeys-language-button:hover label,
+window.novakeys-dark popover.language-selector button.novakeys-language-button:hover box,
+window.novakeys-dark popover.language-selector button.novakeys-language-button:hover label {
+    color: #ffffff;
+}
+
+button.novakeys-language-button.novakeys-dark:active,
+button.novakeys-language-button.novakeys-dark.text-button:active,
+popover.language-selector.novakeys-dark button.novakeys-language-button:active,
+popover.language-selector.novakeys-dark button.novakeys-language-button.text-button:active,
+popover.language-selector button.novakeys-language-button.novakeys-dark:active,
+popover.language-selector button.novakeys-language-button.novakeys-dark.text-button:active,
+window.novakeys-dark popover.language-selector button.novakeys-language-button:active,
+window.novakeys-dark popover.language-selector button.novakeys-language-button.text-button:active,
+popover.novakeys-dark.language-selector button.novakeys-language-button:active,
+popover.novakeys-dark.language-selector button.novakeys-language-button.text-button:active {
+    background-color: #1f2937;
+    background-image: none;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+button.novakeys-language-button.novakeys-dark:active box,
+button.novakeys-language-button.novakeys-dark:active label,
+popover.language-selector.novakeys-dark button.novakeys-language-button:active box,
+popover.language-selector.novakeys-dark button.novakeys-language-button:active label,
+window.novakeys-dark popover.language-selector button.novakeys-language-button:active box,
+window.novakeys-dark popover.language-selector button.novakeys-language-button:active label {
+    color: #ffffff;
+}
+
+/* Dark mode current language button */
+button.novakeys-language-button.novakeys-dark.current-language,
+button.novakeys-language-button.novakeys-dark.current-language.text-button,
+popover.language-selector.novakeys-dark button.novakeys-language-button.current-language,
+popover.language-selector.novakeys-dark button.novakeys-language-button.current-language.text-button,
+window.novakeys-dark popover.language-selector button.novakeys-language-button.current-language,
+window.novakeys-dark popover.language-selector button.novakeys-language-button.current-language.text-button {
+    background-color: #1e3a8a;
+    background-image: none;
+    color: #bfdbfe;
+    border: 2px solid #3b82f6;
+    box-shadow: none;
+}
+
+button.novakeys-language-button.novakeys-dark.current-language:hover,
+button.novakeys-language-button.novakeys-dark.current-language.text-button:hover,
+popover.language-selector.novakeys-dark button.novakeys-language-button.current-language:hover,
+popover.language-selector.novakeys-dark button.novakeys-language-button.current-language.text-button:hover,
+window.novakeys-dark popover.language-selector button.novakeys-language-button.current-language:hover,
+window.novakeys-dark popover.language-selector button.novakeys-language-button.current-language.text-button:hover {
+    background-color: #1e3a8a;
+    background-image: none;
+    color: #bfdbfe;
+    box-shadow: none;
+}
+
+button.novakeys-language-button.novakeys-dark.current-language box,
+button.novakeys-language-button.novakeys-dark.current-language label,
+popover.language-selector.novakeys-dark button.novakeys-language-button.current-language box,
+popover.language-selector.novakeys-dark button.novakeys-language-button.current-language label,
+window.novakeys-dark popover.language-selector button.novakeys-language-button.current-language box,
+window.novakeys-dark popover.language-selector button.novakeys-language-button.current-language label {
+    color: #bfdbfe;
+}
+
+button.novakeys-language-button.novakeys-dark.current-language:hover box,
+button.novakeys-language-button.novakeys-dark.current-language:hover label,
+popover.language-selector.novakeys-dark button.novakeys-language-button.current-language:hover box,
+popover.language-selector.novakeys-dark button.novakeys-language-button.current-language:hover label,
+window.novakeys-dark popover.language-selector button.novakeys-language-button.current-language:hover box,
+window.novakeys-dark popover.language-selector button.novakeys-language-button.current-language:hover label {
+    color: #bfdbfe;
+}
+/* Keep the selected composition mode/candidate visible in both color schemes. */
+window > box.novakeys-backdrop > box.novakeys-keyboard .composition button.suggested-action,
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard .composition button.suggested-action {
+    background-color: rgb(59, 130, 246);
+    background-image: none;
+    color: white;
+}
+window > box.novakeys-backdrop > box.novakeys-keyboard .composition button.suggested-action > label,
+window.novakeys-dark > box.novakeys-backdrop > box.novakeys-keyboard .composition button.suggested-action > label {
+    color: white;
+}

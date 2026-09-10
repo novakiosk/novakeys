@@ -1,0 +1,62 @@
+# Greek layout
+
+language_code = "el"
+language_name = "Ελληνικά"
+language_flag = "🇬🇷"
+
+layout = [
+    [
+        { text = "1" },
+        { text = "2" },
+        { text = "3" },
+        { text = "4" },
+        { text = "5" },
+        { text = "6" },
+        { text = "7" },
+        { text = "8" },
+        { text = "9" },
+        { text = "0" },
+        { action = "backspace", display_text = "Backspace", width = 2 },
+    ],
+    [
+        { text = ";" },
+        { text = "ς" },
+        { text = "ε", alternatives = ["έ"] },
+        { text = "ρ" },
+        { text = "τ" },
+        { text = "υ", alternatives = ["ύ", "ϋ", "ΰ"] },
+        { text = "θ" },
+        { text = "ι", alternatives = ["ί", "ϊ", "ΐ"] },
+        { text = "ο", alternatives = ["ό"] },
+        { text = "π" },
+        { action = "enter", display_text = "Enter", width = 2 },
+    ],
+    [
+        { text = "α", alternatives = ["ά"] },
+        { text = "σ" },
+        { text = "δ" },
+        { text = "φ" },
+        { text = "γ" },
+        { text = "η", alternatives = ["ή"] },
+        { text = "ξ" },
+        { text = "κ" },
+        { text = "λ" },
+        { text = "'" },
+    ],
+    [
+        { action = "shift", display_text = "Shift", width = 2 },
+        { text = "ζ" },
+        { text = "χ" },
+        { text = "ψ" },
+        { text = "ω", alternatives = ["ώ"] },
+        { text = "β" },
+        { text = "ν" },
+        { text = "μ" },
+        { text = ".", alternatives = [",", "?", "!", ":", ";", "/"] },
+        { text = "-", alternatives = ["_", "+", "="] },
+    ],
+    [
+        { text = " ", display_text = "Space", width = 9 },
+        { action = "language_selector", display_text = "Lang", width = 2 },
+    ],
+]

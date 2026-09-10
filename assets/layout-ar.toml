@@ -1,0 +1,65 @@
+# Arabic layout
+
+language_code = "ar"
+language_name = "العربية"
+language_flag = "🇸🇦"
+layout = [
+    [
+        { text = "1" },
+        { text = "2" },
+        { text = "3" },
+        { text = "4" },
+        { text = "5" },
+        { text = "6" },
+        { text = "7" },
+        { text = "8" },
+        { text = "9" },
+        { text = "0" },
+        { action = "backspace", display_text = "Backspace", width = 2 },
+    ],
+    [
+        { text = "ض" },
+        { text = "ص" },
+        { text = "ث" },
+        { text = "ق" },
+        { text = "ف" },
+        { text = "غ" },
+        { text = "ع" },
+        { text = "ه" },
+        { text = "خ" },
+        { text = "ح" },
+        { text = "ج" },
+        { text = "د" },
+        { action = "enter", display_text = "Enter", width = 2 },
+    ],
+    [
+        { text = "ش" },
+        { text = "س" },
+        { text = "ي", alternatives = ["ئ"] },
+        { text = "ب" },
+        { text = "ل" },
+        { text = "ا", alternatives = ["آ", "أ", "إ", "ء"] },
+        { text = "ت" },
+        { text = "ن" },
+        { text = "م" },
+        { text = "ك" },
+        { text = "ط" },
+        { text = "'" },
+    ],
+    [
+        { text = "ظ" },
+        { text = "ز" },
+        { text = "ر" },
+        { text = "و", alternatives = ["ؤ"] },
+        { text = "ة" },
+        { text = "ى" },
+        { text = "ذ" },
+        { text = ".", alternatives = ["،", "؟", "!", ":", "؛", "/"] },
+        { text = "-", alternatives = ["_", "+", "="] },
+        { text = "َ", alternatives = ["ُ", "ِ", "ْ", "ّ", "ً", "ٌ", "ٍ", "ٰ"] },
+    ],
+    [
+        { text = " ", display_text = "Space", width = 9 },
+        { action = "language_selector", display_text = "Lang", width = 2 },
+    ],
+]
